@@ -1,0 +1,98 @@
+@import "../../assets/style.less";
+
+  .container {
+    background-color: #colors[primary];
+    height: 100%;
+    min-height: 100vh;
+    width: 100%;
+    min-width: 100vw;
+    text-align: center;
+  }
+
+  #join-wrapper {
+  margin: 1vh auto 8vh auto;
+  display: inline-block;
+  }
+
+  #title {
+    font-size: 3em;
+    color: #colors[text-primary];
+    margin-bottom: 0;
+  }
+
+  #secondary-title {
+    font-size: 2em;
+    color: #colors[text-primary];
+  }
+
+  p {
+    font-size: 1.5em;
+    color: #colors[text-primary];
+  }
+
+  /* ##### Search ##### */
+
+  header {
+    background: #3498db;
+    margin-bottom: 2rem;
+  }
+
+  input[type='text'] {
+    margin: 1rem;
+    background: #fff;
+    font-size: 1.3rem;
+    border: none;
+    box-shadow: inset 0 0 3px rgba(0, 0, 0, 0.3);
+    border-radius: 3px;
+    padding: 0 2rem;
+    width: calc(100% - 2rem);
+    height: 4rem;
+  }
+
+  /* ##### Filterr ##### */
+
+  .filterImage {
+    position: relative;
+    top: 5px;
+    left: 75px;
+    width: 75px;
+    float: right;
+    padding: 20px;
+  }
+  /* ##### Filter Options ##### */
+
+  .option-list {
+      background-color: white;
+      border: 2px solid #ccc;
+      padding: 10px;
+      position: absolute;
+      left: 60%;
+      top: 20%;
+      z-index: 10; // layer on top
+    }
+
+  .option-list label {
+      display: flex;
+      align-items: center;
+      text-align: left;
+      margin-bottom: 5px;
+    }
+
+  .option-list input[type="checkbox"] {
+      margin-right: 5px;
+    }
+
+  .option-title {
+    font-size: 15px;
+    font-weight: bold;
+    text-align: left;
+  }
+
+  /* ##### Add Button ##### */
+  .add-image {
+    position: relative;
+    width: 80px;
+    float: right;
+    padding: 20px;
+    left: 85px;
+  }
