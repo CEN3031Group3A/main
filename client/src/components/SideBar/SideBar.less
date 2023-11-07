@@ -1,0 +1,61 @@
+@import "../../assets/style.less";
+
+#sideBar {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  height: 100%; /* Occupy full height of the screen */
+  position: -webkit-sticky;
+  position: fixed;
+  left: 0;
+  z-index: 1;
+  width: 20vw; /* Adjust the width as needed */
+  background-color: blanchedalmond;
+  padding-top: 2vh; /* Padding from the top */
+  padding-bottom: 2vh; /* Padding from the bottom */
+
+  -moz-box-shadow:    0 1px 5px -1px darken(#colors[primary], 90%);
+  -webkit-box-shadow: 0 1px 5px -1px darken(#colors[primary], 90%);
+  box-shadow:         0 1px 5px -1px darken(#colors[primary], 90%);
+
+  #link {
+    #casmm-logo {
+      position: relative;
+      bottom: 0;
+      height: 6vh;
+      width: auto;
+    }
+  }
+}
+
+#menu-link {
+  background: none !important;
+  border: none;
+  padding: 0 !important;
+  display: inline-block;
+
+  &:focus {
+    outline: none;
+  }
+
+  &:hover {
+    cursor: pointer;
+  }
+}
+
+.ant-dropdown-link {
+  color: #colors[tertiary];
+  background: none !important;
+  border: none;
+  padding: 0 !important;
+
+  &:focus {
+    outline: none;
+  }
+
+  &:hover {
+    color: #colors[secondary];
+    cursor: pointer;
+  }
+}
