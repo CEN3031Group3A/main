@@ -12,30 +12,19 @@ const Gallery = () => {
 
     const [filterOptions, setFilterOptions] = useState(false);
     const [posts, setPosts] = useState([]);
-    const [searchTerm, setSearchTerm] = useState(""); // state to hold the search term
 
     const toggleOptions = () => {
         setFilterOptions(!filterOptions);
     };
-    const handleSearchChange = (e) => {
-        setSearchTerm(e.target.value); // updates the state with the input from the search bar
-    };
 
-    // Implement search functionality as needed
-    const handleSearch = () => {
-        // Search logic here
-    };
 
 
     return (
         <div className='container nav-padding'>
             <NavBar />
             <SideBar />
-                <h1 style={{ color: "#FFFFFF" }}>GALLERY</h1>
             <div id='join-wrapper'>
-                <div id="search-wrapper">
-                    <input type="text" className="search-input" placeholder="Search..." />
-                </div>
+                <h1 style={{ color: "#FFFFFF" }}>GALLERY</h1>
                 <img onClick={toggleOptions} src={Filter} id='filter' className='filterImage' alt='filter' />
                 {filterOptions && (
                     <div className='option-list'>
