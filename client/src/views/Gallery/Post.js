@@ -18,6 +18,6 @@ function randomPost() {
     return post;
 }
 
-module.exports = getRandomPost;
+module.exports = randomPost;
 
 
