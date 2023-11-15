@@ -93,12 +93,19 @@ export default function NavBar() {
           &nbsp; Report a Bug
         </Menu.Item>
       ) : null}
+      {shouldShowRoute('Gallery') ? (
+        <Menu.Item key='8' onClick={() => handleRouteChange(routes.Gallery)}>
+          <i className='fa fa-sign-out-alt' />
+          &nbsp; Gallery
+        </Menu.Item>
+      ) : null}
       {shouldShowRoute('SignOut') ? (
-        <Menu.Item key='8' onClick={() => handleLogout()}>
+        <Menu.Item key='9' onClick={() => handleLogout()}>
           <i className='fa fa-sign-out-alt' />
           &nbsp; Sign Out
         </Menu.Item>
       ) : null}
+
     </Menu>
   );
 
