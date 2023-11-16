@@ -13,6 +13,10 @@ const GallerySelection = ({ posts }) => {
         {posts.map((post, index) => (
           <div className="gallery-item" key={`post-${index}`}>
             <PostPreview post={post} />
+            <div className="card-footer" style={{ bottom: 2, left: 5 }}>
+              <LikeButton />
+              <SaveButton />
+            </div>
           </div>
         ))}
 
@@ -20,6 +24,8 @@ const GallerySelection = ({ posts }) => {
           <div className="gallery-item placeholder" key={`placeholder-${index}`}>
             <div className="placeholder-content">
               <p>No content available.</p>
+            </div>
+            <div className="card-footer" style={{ bottom: 2, left: 5 }}>
               <LikeButton />
               <SaveButton />
             </div>

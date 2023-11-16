@@ -18,9 +18,11 @@ const LikeButton = () => {
     border: 'none',
     cursor: 'pointer',
     backgroundImage: `url(${imageSource})`,
-    backgroundSize: 'cover',
+    backgroundSize: 'contain',
     backgroundRepeat: 'no-repeat',
+    backgroundColor: 'transparent', 
   };
+  
 
   return (
     <button style={buttonStyle} onClick={handleLike}></button>
