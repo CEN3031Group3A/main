@@ -1,71 +1,46 @@
 
-.container {
-    width: 100%;
-    max-width: 1200px; 
-    //padding-right: 30px;
-    //padding-left: 50px;
-    margin-right: auto;
-    margin-left: auto;
-  }
-  
-  .row {
-    display: flex;
-    flex-wrap: wrap;
-    margin-right: -15px;
-    margin-left: -15px;
-  }
-  
-  .col-md-4 {
-    box-sizing: border-box;
-    flex: 0 0 33.333333%;
-    max-width: 15.333333%;
-    padding: 15px;
-    height: 200px; 
-    margin-left: 250px; 
-    
-  }
-  
+.offset-container {
 
-  .card {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    background-color: #fff;
-    border: 1px solid #ddd;
-    border-radius: 4px;
-  }
-  
-  .card-body {
-    padding: 20px;
-  }
-  
-  .card-title {
-    font-size: 18px;
-  }
-  
-  .card-text {
-    font-size: 14px;
-  }
-  
- 
-  .button-container {
-    display: flex;
-    justify-content: space-between;
-    padding: 0 20px 20px;
-  }
+}
+
+.gallery-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  align-items: stretch;
+  gap: 16px;
+  padding: 16px;
+
+}
+
+.gallery-item {
+  flex: 1 1 calc(33.333% - 16px);
+  display: flex;
+  flex-direction: column;
+  min-height: 200px;
+}
+
+.placeholder-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  text-align: center;
+}
 
 
-  @media (max-width: 768px) {
-    .col-md-4 {
-      flex: 0 0 50%;
-      max-width: 50%;
-    }
-  }
-  
-  @media (max-width: 576px) {
-    .col-md-4 {
-      flex: 0 0 50%;
-      max-width: 100%;
-    }
-  }
-  
+.placeholder {
+  border: 3px solid #dddddd;
+  border-radius: 4px;
+  padding: 20px;
+}
+
+.placeholder-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  text-align: center;
+}

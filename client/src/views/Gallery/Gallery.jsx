@@ -30,7 +30,7 @@ const Gallery = () => {
     return (
         <div className='container nav-padding'>
             <NavBar />
-            <SideBar />
+     
                 <h1 style={{ color: "#FFFFFF" }}>GALLERY</h1>
             <div id='join-wrapper'>
                 <div id="search-wrapper">
