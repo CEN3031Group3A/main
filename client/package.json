@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@faker-js/faker": "^8.3.1",
     "@loadable/component": "^5.15.2",
     "antd": "^4.24.8",
     "axios": "^1.4.0",

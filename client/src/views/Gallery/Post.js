@@ -1,10 +1,10 @@
-const faker = require('faker');
+import { faker } from '@faker-js/faker';
 
-function randomPost() {
+const randomPost= () => {
     const post = {
-        firstName: faker.options.firstName(),
-        lastName: faker.options.lastName(),
-        image: faker.image.transport(),
+        firstName: faker.person.firstName(),
+        lastName: faker.person.lastName(),
+        image: faker.internet.emoji(),
         views: faker.number.int({
             min: 0,
             max: 100
@@ -13,11 +13,11 @@ function randomPost() {
             min: 0,
             max: 100
         }),
-        saved: faker.random.boolean()
+        saved: faker.datatype.boolean(),
+        level: faker.helpers.arrayElement(['organizational', 'local', 'public'])
     };
     return post;
 }
 
-module.exports = randomPost;
-
+export default randomPost;
 
