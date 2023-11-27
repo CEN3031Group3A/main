@@ -11,7 +11,7 @@ const Gallery = () => {
 
 
     const [filterOptions, setFilterOptions] = useState(false); // displays toggle for option list
-    const [filteredPosts, setFilterPost] = useState([]); // sets the filter for level of posts
+    const [filterPost, setFilterPost] = useState([]); // sets the filter for level of posts
     const [posts, setPosts] = useState([]);
     const [searchTerm, setSearchTerm] = useState(""); // state to hold the search term
 
@@ -21,8 +21,14 @@ const Gallery = () => {
 
     const handleFilterChange = (type) => {
         const filtered = posts.filter(post => post.level === type);
-        setFilterPost(filtered);
+        if (filtered) { // filter option is checked
+            setFilterPost(filtered);
+        }
+        else { // filter option is unchecked
+            setFilterPost([]);
+        }
     };
+
     const handleSearchChange = (e) => {
         setSearchTerm(e.target.value); // updates the state with the input from the search bar
     };
@@ -32,17 +38,14 @@ const Gallery = () => {
         // Search logic here
     };
 
-    const generateRandomPosts = (count) => {  // generates random posts based on count
-        const numPosts = [];
-        for (let i = 0; i < count; i++) {
-            const randPost = randomPost();
-            numPosts.push(randPost);
-        }
-        return numPosts;
+    const setRandomPost = () => {  // generates random posts based on count
+        const newPost = randomPost();
+        setPosts(prevState => [...prevState, newPost])
     }
+    // console.log('Current Posts:', posts);
 
-    const generatedPosts = generateRandomPosts(10);
-    console.log(generatedPosts)
+    // const generatedPosts = generateRandomPosts(10);
+    console.log(posts)
 
     return (
         <div className='container nav-padding'>
@@ -70,10 +73,10 @@ const Gallery = () => {
                         </label>
                     </div>
                 )}
-                <img src={Add} id='add' className='add-image' alt='add' />
+                <img onClick={setRandomPost} src={Add} id='add' className='add-image' alt='add' />
             </div>
 
-            <GallerySelection posts={posts} /> {/* Use GallerySelection component */}
+            <GallerySelection posts={filterPost.length > 0 ? filterPost : posts} />
         </div>
     )
 };
