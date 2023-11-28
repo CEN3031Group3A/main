@@ -1,21 +1,35 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './GallerySelection.less';
 import LikeButton from "../../components/GalleryCards/likeButton.jsx";
 import SaveButton from "../../components/GalleryCards/saveButton.jsx";
-import PostPreview from "../../components/GalleryCards/postPreview.jsx";
+// import PostPreview from "../../components/GalleryCards/postPreview.jsx"; need to implenment this
 
-const GallerySelection = ({ viewPosts}) => {
+const GallerySelection = ({ posts }) => {
+  const placeholdersCount = 6 - posts.length;
+  const [likedPosts, setLikedPosts] = useState(posts.map(() => false));
+
+  const toggleLike = (index) => {
+    setLikedPosts(
+      likedPosts.map((liked, i) => (i === index ? !liked : liked))
+    );
+  };
+
   return (
     <div className="offset-container"> 
       <div className="gallery-container">
-        {viewPosts.map((viewPosts, index) => (
+        {posts.map((post, index) => (
           <div className="gallery-item" key={`post-${index}`}>
-              <div className="placeholder">
-                  <PostPreview viewPosts={viewPosts} />
-                  <div className="card-footer" style={{ bottom: 2, left: 5 }}>
-                      <LikeButton />
-                      <SaveButton />
-                  </div>
+            <PostPreview post={post} />
+          </div>
+        ))}
+
+        {Array.from({ length: placeholdersCount }, (_, index) => (
+          <div className="gallery-item placeholder" key={`placeholder-${index}`}>
+            <div className="placeholder-content">
+              <p>No content available.</p>
+              <LikeButton liked={likedPosts[index]} onLike={() => toggleLike(index)} />
+              <SaveButton />
+          
             </div>
           </div>
         ))}
