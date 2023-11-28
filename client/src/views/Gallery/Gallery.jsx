@@ -31,18 +31,25 @@ const Gallery = () => {
 
     const handleSearchChange = (e) => {
         setSearchTerm(e.target.value); // updates the state with the input from the search bar
+        //console.log(searchTerm);
+        handleSearch();
     };
 
     // Implement search functionality as needed
     const handleSearch = () => {
         // Search logic here
+        const filtered = posts.filter(post =>
+            post.firstName.toLowerCase().includes(searchTerm.toLowerCase())
+        );
+        setFilterPost(filtered);
+        //console.log(filterPost);
     };
 
     const setRandomPost = () => {
         const newPost = randomPost();
         setPosts(prevState => [...prevState, newPost])
     }
-    console.log(posts)
+    //console.log(posts)
 
     return (
         <div className='container nav-padding'>
@@ -50,7 +57,13 @@ const Gallery = () => {
                 <h1 style={{ color: "#FFFFFF" }}>GALLERY</h1>
             <div id='task-wrapper'>
                 <div id="search-wrapper">
-                    <input type="text" className="search-input" placeholder="Search..." />
+                    <input
+                        type="text"
+                        className="search-input"
+                        value={searchTerm}
+                        onChange={handleSearchChange}
+                        placeholder="Search..."
+                    />
                 </div>
                 <img onClick={toggleOptions} src={Filter} id='filter' className='filterImage' alt='filter' />
                 {filterOptions && (
@@ -72,7 +85,7 @@ const Gallery = () => {
                 )}
                 <img onClick={setRandomPost} src={Add} id='add' className='add-image' alt='add' />
             </div>
-            <GallerySelection viewPosts={filterPost.length > 0 ? filterPost : posts}/>
+            <GallerySelection viewPosts={searchTerm.length > 0 ? filterPost : posts}/>
         </div>
     )
 };
