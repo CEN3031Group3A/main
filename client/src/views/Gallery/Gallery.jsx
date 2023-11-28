@@ -21,10 +21,10 @@ const Gallery = () => {
 
     const handleFilterChange = (type) => {
         const filtered = posts.filter(post => post.level === type);
-        if (filtered) { // filter option is checked
+        if (filtered) { // filter option matches type
             setFilterPost(filtered);
         }
-        else { // filter option is unchecked
+        else {
             setFilterPost([]);
         }
     };
@@ -38,13 +38,10 @@ const Gallery = () => {
         // Search logic here
     };
 
-    const setRandomPost = () => {  // generates random posts based on count
+    const setRandomPost = () => {
         const newPost = randomPost();
         setPosts(prevState => [...prevState, newPost])
     }
-    // console.log('Current Posts:', posts);
-
-    // const generatedPosts = generateRandomPosts(10);
     console.log(posts)
 
     return (
@@ -75,8 +72,7 @@ const Gallery = () => {
                 )}
                 <img onClick={setRandomPost} src={Add} id='add' className='add-image' alt='add' />
             </div>
-
-            <GallerySelection posts={filterPost.length > 0 ? filterPost : posts} />
+            <GallerySelection viewPosts={filterPost.length > 0 ? filterPost : posts}/>
         </div>
     )
 };
