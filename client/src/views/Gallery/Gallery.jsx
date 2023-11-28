@@ -30,8 +30,8 @@ const Gallery = () => {
     return (
         <div className='container nav-padding'>
             <NavBar />
-     
-                <h1 style={{ color: "#FFFFFF" }}>GALLERY</h1>
+
+            <h1 style={{ color: "#FFFFFF" }}>GALLERY</h1>
             <div id='join-wrapper'>
                 <div id="search-wrapper">
                     <input type="text" className="search-input" placeholder="Search..." />
@@ -53,8 +53,9 @@ const Gallery = () => {
                 )}
                 <img src={Add} id='add' className='add-image' alt='add' />
             </div>
-
-            <GallerySelection posts={posts} /> {/* Use GallerySelection component */}
+            <div className="gallery-scroll-wrapper">
+                <GallerySelection posts={posts} />
+            </div>
         </div>
     )
 };
