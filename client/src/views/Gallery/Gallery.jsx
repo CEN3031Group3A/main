@@ -15,6 +15,7 @@ const Gallery = () => {
     const [searchPost, setSearchPost] = useState([]);
     const [posts, setPosts] = useState([]);
     const [searchTerm, setSearchTerm] = useState(""); // state to hold the search term
+    const [matchedPosts, setMatchedPosts] = useState([]); // state to hold matched posts for the dropdown
 
     const toggleOptions = () => {
         setFilterOptions(!filterOptions);
@@ -31,19 +32,33 @@ const Gallery = () => {
     };
 
     const handleSearchChange = (e) => {
-        setSearchTerm(e.target.value); // updates the state with the input from the search bar
-        //console.log(searchTerm);
-        handleSearch();
+        const searchTerm = e.target.value;
+        setSearchTerm(searchTerm);
+
+        if (searchTerm === '') {
+            setMatchedPosts([]);
+            setSearchPost([]);
+        } else {
+            // Filter posts by checking both first and last names
+            const matched = posts.filter(post =>
+                post.firstName.toLowerCase().includes(searchTerm.toLowerCase()) ||
+                post.lastName.toLowerCase().includes(searchTerm.toLowerCase())
+            );
+            setMatchedPosts(matched);
+            setSearchPost(matched); // Update the main gallery view
+        }
     };
 
-    // Implement search functionality as needed
-    const handleSearch = () => {
-        // Search logic here
-        const filtered = posts.filter(post =>
-            post.firstName.toLowerCase().includes(searchTerm.toLowerCase())
+
+
+    const highlightText = (post, highlight) => {
+        const fullName = `${post.firstName} ${post.lastName}`;
+        const parts = fullName.split(new RegExp(`(${highlight})`, 'gi'));
+        return (
+            <span>
+                {parts.map(part => part.toLowerCase() === highlight.toLowerCase() ? <span className="highlight">{part}</span> : part)}
+            </span>
         );
-        setSearchPost(filtered);
-        //console.log(filterPost);
     };
 
     const setRandomPost = () => {
@@ -65,6 +80,16 @@ const Gallery = () => {
                         onChange={handleSearchChange}
                         placeholder="Search..."
                     />
+                    {matchedPosts.length > 0 && searchTerm && (
+                        <div className="dropdown">
+                            {matchedPosts.slice(0, 5).map(post => (
+                                <div key={`${post.firstName}-${post.lastName}`} className="dropdown-item">
+                                    {highlightText(post, searchTerm)}
+                                </div>
+                            ))}
+                        </div>
+                    )}
+
                 </div>
                 <img onClick={toggleOptions} src={Filter} id='filter' className='filterImage' alt='filter' />
                 {filterOptions && (
@@ -86,7 +111,7 @@ const Gallery = () => {
                 )}
                 <img onClick={setRandomPost} src={Add} id='add' className='add-image' alt='add' />
             </div>
-            <GallerySelection viewPosts={searchTerm.length > 0 ? searchPost : (filterPost.length > 0 ? filterPost : posts)}/>
+            <GallerySelection viewPosts={searchTerm.length > 0 ? searchPost : (filterPost.length > 0 ? filterPost : posts)} />
         </div>
     )
 };
