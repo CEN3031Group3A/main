@@ -12,6 +12,7 @@ const Gallery = () => {
 
     const [filterOptions, setFilterOptions] = useState(false); // displays toggle for option list
     const [filterPost, setFilterPost] = useState([]); // sets the filter for level of posts
+    const [searchPost, setSearchPost] = useState([]);
     const [posts, setPosts] = useState([]);
     const [searchTerm, setSearchTerm] = useState(""); // state to hold the search term
 
@@ -41,7 +42,7 @@ const Gallery = () => {
         const filtered = posts.filter(post =>
             post.firstName.toLowerCase().includes(searchTerm.toLowerCase())
         );
-        setFilterPost(filtered);
+        setSearchPost(filtered);
         //console.log(filterPost);
     };
 
@@ -49,7 +50,7 @@ const Gallery = () => {
         const newPost = randomPost();
         setPosts(prevState => [...prevState, newPost])
     }
-    //console.log(posts)
+    console.log(posts)
 
     return (
         <div className='container nav-padding'>
@@ -85,7 +86,7 @@ const Gallery = () => {
                 )}
                 <img onClick={setRandomPost} src={Add} id='add' className='add-image' alt='add' />
             </div>
-            <GallerySelection viewPosts={searchTerm.length > 0 ? filterPost : posts}/>
+            <GallerySelection viewPosts={searchTerm.length > 0 ? searchPost : (filterPost.length > 0 ? filterPost : posts)}/>
         </div>
     )
 };
