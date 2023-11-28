@@ -5,7 +5,7 @@ import SaveButton from "../../components/GalleryCards/saveButton.jsx";
 // import PostPreview from "../../components/GalleryCards/postPreview.jsx"; need to implenment this
 
 const GallerySelection = ({ posts }) => {
-  const placeholdersCount = 10 - posts.length;
+  const placeholdersCount = 6 - posts.length;
 
   return (
     <div className="offset-container"> 
