@@ -14,7 +14,7 @@ const randomPost= () => {
             max: 100
         }),
         saved: faker.datatype.boolean(),
-        level: faker.helpers.arrayElement(['organizational', 'local', 'public'])
+        level: faker.helpers.arrayElement(['Organizational', 'Classroom', 'Public'])
     };
     return post;
 }
