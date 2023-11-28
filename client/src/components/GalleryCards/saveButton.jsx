@@ -1,13 +1,15 @@
+// SaveButton.jsx
 import React, { useState } from 'react';
-import Saved from "../../assets/saved.png"; 
-import Unsaved from "../../assets/unsaved.png"; 
+import Saved from "../../assets/saved.png";
+import Unsaved from "../../assets/unsaved.png";
 
-const SaveButton = () => {
-  const [saved, setSaved] = useState(false);
+const SaveButton = ({ post, updatePost }) => {
+  const [saved, setSaved] = useState(post.saved);
 
   const handleSave = () => {
     setSaved(!saved);
-    // this is where we will implement logic to change state of posts for liked/unliked for filtering
+    console.log(`Post ID ${post.id} Saved: ${!saved}`);
+    updatePost(post.id, { ...post, saved: !saved });
   };
 
   const imageSource = saved ? Saved : Unsaved;
@@ -20,9 +22,9 @@ const SaveButton = () => {
     backgroundImage: `url(${imageSource})`,
     backgroundSize: 'contain',
     backgroundRepeat: 'no-repeat',
-    backgroundColor: 'transparent', 
+    backgroundColor: 'transparent',
   };
-  
+
   return (
     <button style={buttonStyle} onClick={handleSave}></button>
   );

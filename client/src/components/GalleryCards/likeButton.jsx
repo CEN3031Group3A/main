@@ -1,31 +1,34 @@
+// LikeButton.jsx
 import React, { useState } from 'react';
-import Liked from "../../assets/liked.png"; 
-import Unliked from "../../assets/unliked.png"; 
+import Liked from "../../assets/liked.png";
+import Unliked from "../../assets/unliked.png";
 
-const LikeButton = () => {
-  const [liked, setLiked] = useState(false);
+const LikeButton = ({ post, updatePost }) => {
+  const [liked, setLiked] = useState(post.liked);
 
   const handleLike = () => {
-    setLiked(!liked);
-    // this is where we will implement logic to change state of posts for saved/unsaved for filtering
+    const updatedLiked = !liked;
+    setLiked(updatedLiked);
+
+    const updatedLikeCount = updatedLiked ? post.likes + 1 : post.likes - 1;
+
+    console.log(`Post ID ${post.id} Liked: ${updatedLiked}`);
+    updatePost(post.id, { ...post, liked: updatedLiked, likes: updatedLikeCount });
   };
 
   const imageSource = liked ? Liked : Unliked;
 
   const buttonStyle = {
-    width: '40px',
-    height: '40px',
-    border: 'none',
+    display: 'flex',
+    alignItems: 'center', 
     cursor: 'pointer',
-    backgroundImage: `url(${imageSource})`,
-    backgroundSize: 'contain',
-    backgroundRepeat: 'no-repeat',
-    backgroundColor: 'transparent', 
   };
-  
 
   return (
-    <button style={buttonStyle} onClick={handleLike}></button>
+    <div style={buttonStyle}>
+      <button style={{ width: '40px', height: '40px', border: 'none', backgroundImage: `url(${imageSource})`, backgroundSize: 'contain', backgroundRepeat: 'no-repeat', backgroundColor: 'transparent' }} onClick={handleLike}></button>
+      <span style={{ marginLeft: '8px', color: '#555' }}>{post.likes}</span>
+    </div>
   );
 };
 

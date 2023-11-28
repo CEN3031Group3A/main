@@ -1,5 +1,4 @@
 @import "../../assets/style.less";
-
 .container {
   background-color: #colors[primary];
   height: 100%;
@@ -11,103 +10,106 @@
 
   #join-wrapper {
   margin: 1vh auto 8vh auto;
-  display: flex; 
-  align-items: center; 
-  justify-content: flex-start; 
+  display: flex; /* Use flex to arrange items horizontally */
+  align-items: center; /* Vertically align items */
+  justify-content: flex-start; /* Align items to the start of the container */
   width: 60%;
   flex-wrap: wrap;
-  padding-left: 20%; 
-}
+  padding-left: 20%; /* If you have many items, they will wrap to the next line */
+  }
 
-#join-wrapper > *:not(:last-child) {
-  margin-right: 20px; 
-}
+  #join-wrapper > *:not(:last-child) {
+  margin-right: 20px; /* Adds a 50px margin to all child elements except the last one */
+  }
+
+  #task-wrapper {
+  margin: 1vh auto 7vh auto;
+  display: flex; /* Use flex to arrange items horizontally */
+  align-items: center; /* Vertically align items */
+  justify-content: flex-start; /* Align items to the start of the container */
+  width: 80%;
+  flex-wrap: wrap;
+  }
+
   #title {
     font-size: 3em;
     color: #colors[text-primary];
     margin-bottom: 0;
   }
 
-#secondary-title {
-  font-size: 2em;
-  color: #colors[text-primary];
-}
+  #secondary-title {
+    font-size: 2em;
+    color: #colors[text-primary];
+  }
 
-p {
-  font-size: 1.5em;
-  color: #colors[text-primary];
-}
+  p {
+    font-size: 1.5em;
+    color: #colors[text-primary];
+  }
 
-/* ##### Search ##### */
+  /* ##### Search ##### */
 
-header {
-  background: #3498db;
-  margin-bottom: 2rem;
-}
+  header {
+    background: #3498db;
+    margin-bottom: 2rem;
+  }
 
-input[type='text'] {
-  margin: 1rem;
-  background: #fff;
-  font-size: 1.3rem;
-  border: none;
-  box-shadow: inset 0 0 3px rgba(0, 0, 0, 0.3);
-  border-radius: 3px;
-  padding: 0 2rem;
-  width: 200%;
-  height: 4rem;
-}
+  input[type='text'] {
+    margin: 1rem;
+    background: #fff;
+    font-size: 1.3rem;
+    border: none;
+    box-shadow: inset 0 0 3px rgba(0, 0, 0, 0.3);
+    border-radius: 3px;
+    padding: 0 2rem;
+    width: 200%;
+    height: 4rem;
+  }
 
-/* ##### Filter ##### */
+  /* ##### Filter ##### */
 
-.filterImage {
-  position: relative;
-  //top: 5px;
-  left: 32%;
-  width: 40px;
-  //float: right;
-  //padding: 20px;
-}
+  .filterImage {
+    position: relative;
+    //top: 5px;
+    left: 32%;
+    width: 40px;
+    //float: right;
+    //padding: 20px;
+  }
+  /* ##### Filter Options ##### */
 
-/* ##### Filter Options ##### */
+  .option-list {
+      background-color: white;
+      border: 2px solid #ccc;
+      padding: 10px;
+      position: absolute;
+      left: 61%;
+      top: 20%;
+      z-index: 10; // layer on top
+    }
 
-.option-list {
-  background-color: white;
-  border: 2px solid #ccc;
-  padding: 10px;
-  position: absolute;
-  left: 61%;
-  top: 20%;
-  z-index: 10; // layer on top
-}
+  .option-list label {
+      display: flex;
+      align-items: center;
+      text-align: left;
+      margin-bottom: 5px;
+    }
 
-.option-list label {
-  display: flex;
-  align-items: center;
-  text-align: left;
-  margin-bottom: 5px;
-}
+  .option-list input[type="checkbox"] {
+      margin-right: 5px;
+    }
 
-.option-list input[type="checkbox"] {
-  margin-right: 5px;
-}
+  .option-title {
+    font-size: 15px;
+    font-weight: bold;
+    text-align: left;
+  }
 
-.option-title {
-  font-size: 15px;
-  font-weight: bold;
-  text-align: left;
-}
-
-/* ##### Add Button ##### */
-.add-image {
-  position: relative;
-  width: 40px;
-  //float: right;
-  //padding: 20px;
-  left: 33%;}
-
-
-.gallery-scroll-wrapper {
-  max-height: 500px; 
-  overflow-y: auto; 
-  margin-top: 20px;
-}
+  /* ##### Add Button ##### */
+  .add-image {
+    position: relative;
+    width: 40px;
+    //float: right;
+    //padding: 20px;
+    left: 33%;
+  }
