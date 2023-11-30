@@ -26,8 +26,8 @@ const LikeButton = ({ post, updatePost }) => {
 
   return (
     <div style={buttonStyle}>
-      <button style={{ width: '40px', height: '40px', border: 'none', backgroundImage: `url(${imageSource})`, backgroundSize: 'contain', backgroundRepeat: 'no-repeat', backgroundColor: 'transparent' }} onClick={handleLike}></button>
-      <span style={{ marginLeft: '8px', color: '#555' }}>{post.likes}</span>
+      <button style={{ width: '40px', height: '40px', border: 'none', backgroundImage: `url(${imageSource})`, backgroundSize: 'contain', backgroundRepeat: 'no-repeat', backgroundColor: 'transparent', cursor: 'pointer' }} onClick={handleLike}></button>
+      <span style={{ marginLeft: '0px', color: '#fff' }}>{post.likes}</span>
     </div>
   );
 };

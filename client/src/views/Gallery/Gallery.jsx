@@ -55,7 +55,7 @@ const Gallery = () => {
                 <div id="search-wrapper">
                     <input type="text" className="search-input" placeholder="Search..." />
                 </div>
-                <img onClick={toggleOptions} src={Filter} id='filter' className='filterImage' alt='filter' />
+                <img onClick={toggleOptions} src={Filter} id='filter' className='filterImage' alt='filter' style={{ cursor: 'pointer' }} />
                 {filterOptions && (
                     <div className='option-list'>
                         <h1 className='option-title'>View Options</h1>
@@ -73,7 +73,7 @@ const Gallery = () => {
                         </label>
                     </div>
                 )}
-                <img onClick={setRandomPost} src={Add} id='add' className='add-image' alt='add' />
+                <img onClick={setRandomPost} src={Add} id='add' className='add-image' alt='add' style={{ cursor: 'pointer' }} />
             </div>
             <GallerySelection viewPosts={filterPost.length > 0 ? filterPost : posts}/>
         </div>
