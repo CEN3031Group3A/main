@@ -1,4 +1,3 @@
-// LikeButton.jsx
 import React, { useState } from 'react';
 import Liked from "../../assets/liked.png";
 import Unliked from "../../assets/unliked.png";

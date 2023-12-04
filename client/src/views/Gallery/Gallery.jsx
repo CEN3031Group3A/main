@@ -12,6 +12,7 @@ const Gallery = () => {
 
     const [filterOptions, setFilterOptions] = useState(false); // displays toggle for option list
     const [filterPost, setFilterPost] = useState([]); // sets the filter for level of posts
+    const [searchPost, setSearchPost] = useState([]);
     const [posts, setPosts] = useState([]);
     const [searchTerm, setSearchTerm] = useState(""); // state to hold the search term
 
@@ -31,11 +32,18 @@ const Gallery = () => {
 
     const handleSearchChange = (e) => {
         setSearchTerm(e.target.value); // updates the state with the input from the search bar
+        //console.log(searchTerm);
+        handleSearch();
     };
 
     // Implement search functionality as needed
     const handleSearch = () => {
         // Search logic here
+        const filtered = posts.filter(post =>
+            post.firstName.toLowerCase().includes(searchTerm.toLowerCase())
+        );
+        setSearchPost(filtered);
+        //console.log(filterPost);
     };
 
     const setRandomPost = () => {
@@ -43,17 +51,20 @@ const Gallery = () => {
         setPosts(prevState => [...prevState, newPost])
     }
     console.log(posts)
-    const updatePosts = (updatedPosts) => {
-        setPosts(updatedPosts);
-    };
 
     return (
         <div className='container nav-padding'>
             <NavBar />
-                <h1 style={{ color: "#FFFFFF" }}>GALLERY</h1>
+            <h1 style={{ color: "#FFFFFF" }}>GALLERY</h1>
             <div id='task-wrapper'>
                 <div id="search-wrapper">
-                    <input type="text" className="search-input" placeholder="Search..." />
+                    <input
+                        type="text"
+                        className="search-input"
+                        value={searchTerm}
+                        onChange={handleSearchChange}
+                        placeholder="Search..."
+                    />
                 </div>
                 <img onClick={toggleOptions} src={Filter} id='filter' className='filterImage' alt='filter' style={{ cursor: 'pointer' }} />
                 {filterOptions && (
@@ -75,7 +86,7 @@ const Gallery = () => {
                 )}
                 <img onClick={setRandomPost} src={Add} id='add' className='add-image' alt='add' style={{ cursor: 'pointer' }} />
             </div>
-            <GallerySelection viewPosts={filterPost.length > 0 ? filterPost : posts}/>
+            <GallerySelection viewPosts={searchTerm.length > 0 ? searchPost : (filterPost.length > 0 ? filterPost : posts)}/>
         </div>
     )
 };

@@ -1,12 +1,14 @@
 import React, { useState } from 'react';
 import styles from './Discussion.module.less';
 import AddButtonImage from "../../assets/add_button.png"; 
+import CopyIconImage from "../../assets/copyicon.png"; 
 import NavBar from "../../components/NavBar/NavBar";
 import LikeButton from "../../components/GalleryCards/likeButton.jsx";
 
 const Discussion = () => {
   const [comments, setComments] = useState([]);
   const [newComment, setNewComment] = useState('');
+
 
   const handleCommentChange = (e) => {
     setNewComment(e.target.value);
@@ -55,6 +57,9 @@ const Discussion = () => {
             
               <button onClick={addComment} className={styles['add-image']} title='Add Comment'>
                 <img src={AddButtonImage} alt='Add Comment' />
+              </button>
+              <button onClick={addComment} className={styles['copy-icon-button']} >
+                <img src={CopyIconImage} alt='Add Comment' />
               </button>
             </div>
           </div>
