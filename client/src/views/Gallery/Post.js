@@ -1,6 +1,8 @@
+// Post.js
+
 import { faker } from '@faker-js/faker';
 
-const randomPost= () => {
+const randomPost = () => {
     const post = {
         id: faker.string.uuid(),
         firstName: faker.person.firstName(),
@@ -16,10 +18,10 @@ const randomPost= () => {
         }),
         liked: faker.datatype.boolean(),
         saved: faker.datatype.boolean(),
-        level: faker.helpers.arrayElement(['Organizational', 'Classroom', 'Public'])
+        level: faker.helpers.arrayElement(['Organizational', 'Classroom', 'Public']),
+        projectTitle: faker.lorem.words() // Add project title
     };
     return post;
 }
 
 export default randomPost;
-
