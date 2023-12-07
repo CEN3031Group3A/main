@@ -5,9 +5,11 @@ import Unsaved from "../../assets/unsaved.png";
 const SaveButton = ({ post, updatePost }) => {
   const [saved, setSaved] = useState(post.saved);
 
+  // handling the save button click
   const handleSave = () => {
+    // toggle the saved state
     setSaved(!saved);
-    console.log(`Post ID ${post.id} Saved: ${!saved}`);
+    // call the updatePost function to update the post with new liked state and like count
     updatePost(post.id, { ...post, saved: !saved });
   };
 
