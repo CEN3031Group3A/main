@@ -21,6 +21,7 @@ import ResetPassword from './views/TeacherLogin/ResetPassword';
 import TeacherLogin from './views/TeacherLogin/TeacherLogin';
 import Gallery from './views/Gallery/Gallery';
 import Discussion from './views/Discussion/Discussion';
+import GalleryForm from './views/GalleryForm/GalleryForm';
 
 const App = () => {
   return (
@@ -30,6 +31,7 @@ const App = () => {
         <Route path='/about' element={<About />} />
         <Route path='gallery' element={<Gallery />} />
         <Route path='/discussion' element={<Discussion />} />
+        <Route path='/gallery/form' element={<GalleryForm />}/>
         <Route path='/teacherlogin' element={<TeacherLogin />} />
         <Route path='/forgot-password' element={<ForgetPassword />} />
         <Route path='/reset-password' element={<ResetPassword />} />
