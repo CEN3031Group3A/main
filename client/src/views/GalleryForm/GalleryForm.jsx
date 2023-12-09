@@ -1,6 +1,5 @@
 import React from 'react';
 import { useForm } from 'react-hook-form';
-import NavBar from '../../components/NavBar/NavBar';
 import randomPost from '../Gallery/Post'; // Assuming Post.js is in the same directory
 import './GalleryForm.css';
 
