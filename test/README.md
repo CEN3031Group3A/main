@@ -34,5 +34,15 @@
 - Usage – Stress and Load test the application
 - Run yarn `performance`
 
+### How to run Gallery page
+Open your terminal and direct to the client folder of the project.
+On the terminal enter yarn start
+Go to http://localhost:3000/gallery
+
+Click the plus sign to add more post
+
+### How to run Discussion page
+On the terminal enter yarn start
+Go to http://localhost:3000/discussion
 
 
